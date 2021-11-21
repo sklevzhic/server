@@ -6,8 +6,10 @@ const englishRouter = require("./englishRouter")
 const app = express()
 
 app.use(express.json())
+
 app.use("/auth", authRouter)
 app.use("/english", englishRouter)
+
 const start = async () => {
     try {
         await mongoose.connect('mongodb+srv://sklevzhic:6303nokiA@cluster0.lw5fe.mongodb.net/databasr?retryWrites=true&w=majority')
