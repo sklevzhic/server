@@ -47,14 +47,19 @@ class authController {
                 return res.status(400).json({message: "Пользователь с таким логином не найден"})
             }
             const token = generateAccessToken(candidate._id, candidate.roles)
-            return res.json({token})
-
-
+            return res.json({token, id: candidate._id})
         } catch (e) {
             res.json({message: "fatal error"})
         }
     }
+    async getUser(req, res) {
+        try {
+            const user = await User.findById(req.params.id).exec();
+            res.json({id: user._id, username: user.username})
+        } catch (e) {
 
+        }
+    }
     async getUsers(req, res) {
         try {
             const users = await User.find()

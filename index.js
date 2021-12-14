@@ -4,9 +4,13 @@ const mongoose = require('mongoose')
 const authRouter = require("./authRouter")
 const englishRouter = require("./englishRouter")
 const app = express()
+const cors = require('cors');
 
 app.use(express.json())
-
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+}));
 app.use("/auth", authRouter)
 app.use("/english", englishRouter)
 
