@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(express.json())
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://calendar-drab.vercel.app'
 }));
 app.use("/auth", authRouter)
 app.use("/english", englishRouter)
